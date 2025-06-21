@@ -1,0 +1,26 @@
+return {
+    "oil.nvim",
+    lazy = false,
+    -- before = function()
+    --     lzn.trigger_load("nvim-treesitter")
+    -- end,
+    after = function()
+        require("oil").setup({
+            view_options = {
+                show_hidden = true,
+            },
+            float = {
+                padding = 5,
+            },
+        })
+    end,
+    keys = {
+        {
+            "<leader>o",
+            ":lua require('oil').open_float()<CR>",
+            desc = "Open Oil Floating Window",
+            silent = true
+        },
+    },
+
+}

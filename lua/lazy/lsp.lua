@@ -1,0 +1,178 @@
+return {
+    {
+        "fidget.nvim",
+        after = function()
+            require("fidget").setup({})
+        end
+    },
+    {
+        "nvim-lspconfig",
+        lazy = false,
+        before = function()
+            LZN.trigger_load("blink.cmp")
+        end,
+        after = function()
+            -- Enable lspconfig
+            local lspconfig = require("lspconfig")
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+            vim.diagnostic.config({
+                virtual_text = true,
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "●",
+                        [vim.diagnostic.severity.WARN] = "●",
+                        [vim.diagnostic.severity.INFO] = "●",
+                        [vim.diagnostic.severity.HINT] = "●",
+                    },
+                },
+                update_in_insert = false,
+                underline = true,
+                severity_sort = true,
+                float = {
+                    focusable = false,
+                    style = "minimal",
+                    border = "rounded",
+                    source = "always",
+                    header = "",
+                    prefix = "",
+                },
+            })
+
+            local servers = {
+                rust_analyzer = {
+                    settings = {
+                        ["rust-analyzer"] = {
+                            imports = {
+                                granularity = {
+                                    group = "module",
+                                },
+                            },
+                            cargo = {
+                                buildScripts = {
+                                    enable = true,
+                                },
+                            },
+                            files = {
+                                excludeDirs = { ".direnv" },
+                            },
+                            procMacro = {
+                                enable = true
+                            },
+                        },
+                    },
+                },
+                clangd = {
+                    cmd = {
+                        "clangd",
+                        "--background-index",
+                        "--pch-storage=memory",
+                        "--clang-tidy",
+                        "--suggest-missing-includes",
+                        "--all-scopes-completion",
+                    },
+                    filetypes = { "c", "cpp", "cc" },
+                },
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            runtime = {
+                                version = "LuaJIT",
+                            },
+                            diagnostics = {
+                                globals = { "vim" },
+                                disable = { "missing-fields" },
+                            },
+                            workspace = {
+                                library = {},
+                                checkThirdParty = false,
+                            },
+                            telemetry = {
+                                enable = false,
+                            },
+                        },
+                    },
+                },
+                nil_ls = {
+                    auto_start = true,
+                    settings = {
+                        ['nil'] = {
+                            formatting = {
+                                command = { "alejandra" },
+                            },
+                            nix = {
+                                maxMemoryMB = 8196,
+                                flake = {
+                                    autoArchive = false,
+                                    autoEvalInputs = true,
+                                    nixpkgsInputName = nil,
+                                },
+                            }
+                        }
+                    }
+                },
+                bashls = {},
+                pyright = {},
+                ts_ls = {},
+                gopls = {},
+                html = {
+                    filetypes = { "django-html", "htmldjango", "html", "templ" }
+                },
+                -- htmx = {},
+                cssls = {},
+                tailwindcss = {},
+                eslint = {},
+                svelte = {},
+                marksman = {},
+                tinymist = {
+                    settings = {
+                        formatterMode = "typstyle",
+                    },
+                },
+            }
+            for name, server in pairs(servers) do
+                server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+                lspconfig[name].setup(server)
+            end
+        end,
+        keys = {
+            { "gD",        vim.lsp.buf.declaration,             desc = "Go to declaration" },
+            { "gd",        vim.lsp.buf.definition,              desc = "Go to definition" },
+            { "K",         vim.lsp.buf.hover,                   desc = "Hover documentation" },
+            { "gi",        vim.lsp.buf.implementation,          desc = "Go to implementation" },
+            { "<C-k>",     vim.lsp.buf.signature_help,          desc = "Signature help" },
+            { "<space>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add workspace folder" },
+            { "<space>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
+            {
+                "<space>wl",
+                function()
+                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                end,
+                desc = "List workspace folders"
+            },
+            { "<space>D",  vim.lsp.buf.type_definition,                        desc = "Type definition" },
+            { "<space>rn", vim.lsp.buf.rename,                                 desc = "Rename symbol" },
+            { "<space>ca", vim.lsp.buf.code_action,                            desc = "Code action" },
+            { "<space>e",  vim.diagnostic.open_float,                          desc = "Open diagnostic float" },
+            { "gr",        vim.lsp.buf.references,                             desc = "Go to references" },
+            { "<space>f",  function() vim.lsp.buf.format { async = true } end, desc = "Format buffer" },
+        },
+    },
+    {
+        "crates.nvim",
+        event = "BufEnter Cargo.toml",
+        before = function()
+            LZN.trigger_load("nvim-lspconfig")
+        end,
+        after = function()
+            require("crates").setup({
+                lsp = {
+                    enabled = true,
+                    actions = true,
+                    completion = true,
+                    hover = true,
+                },
+            })
+        end,
+    }
+}
