@@ -50,7 +50,7 @@ return {
                     },
                     {
                         "branch",
-                        icon = { "", color = { fg = "#b4befe" } },
+                        icon = { "", color = { fg = "#b4befe" } },
                         padding = 1,
                     },
                     {
@@ -59,10 +59,6 @@ return {
                     },
                     {
                         "diagnostics",
-                        padding = 1,
-                    },
-                    {
-                        "progress",
                         padding = 1,
                     },
                 },
@@ -86,6 +82,14 @@ return {
                 lualine_x = {},
                 lualine_y = {},
                 lualine_z = {
+                    {
+                        "progress",
+                        padding = 1,
+                    },
+                    {
+                        "location",
+                        padding = 1,
+                    },
                     {
                         shiftwidth,
                         padding = 1,
