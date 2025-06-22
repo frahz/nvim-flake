@@ -28,6 +28,9 @@ opt.listchars = {
     trail = "•",
 }
 
+-- [[ window borders ]]
+vim.o.winborder = "single"
+
 vim.g.clipboard = {
     name = "osc52",
     copy = {
