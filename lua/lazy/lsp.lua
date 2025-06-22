@@ -141,21 +141,21 @@ return {
             { "K",         vim.lsp.buf.hover,                   desc = "Hover documentation" },
             { "gi",        vim.lsp.buf.implementation,          desc = "Go to implementation" },
             { "<C-k>",     vim.lsp.buf.signature_help,          desc = "Signature help" },
-            { "<space>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add workspace folder" },
-            { "<space>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
+            { "<leader>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add workspace folder" },
+            { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
             {
-                "<space>wl",
+                "<leader>wl",
                 function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end,
                 desc = "List workspace folders"
             },
-            { "<space>D",  vim.lsp.buf.type_definition,                        desc = "Type definition" },
-            { "<space>rn", vim.lsp.buf.rename,                                 desc = "Rename symbol" },
-            { "<space>ca", vim.lsp.buf.code_action,                            desc = "Code action" },
-            { "<space>e",  vim.diagnostic.open_float,                          desc = "Open diagnostic float" },
+            { "<leader>D",  vim.lsp.buf.type_definition,                        desc = "Type definition" },
+            { "<leader>rn", vim.lsp.buf.rename,                                 desc = "Rename symbol" },
+            { "<leader>ca", vim.lsp.buf.code_action,                            desc = "Code action" },
+            { "<leader>e",  vim.diagnostic.open_float,                          desc = "Open diagnostic float" },
             { "gr",        vim.lsp.buf.references,                             desc = "Go to references" },
-            { "<space>f",  function() vim.lsp.buf.format { async = true } end, desc = "Format buffer" },
+            { "<leader>f",  function() vim.lsp.buf.format { async = true } end, desc = "Format buffer" },
         },
     },
     {
