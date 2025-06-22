@@ -30,10 +30,8 @@ return {
                 underline = true,
                 severity_sort = true,
                 float = {
-                    focusable = false,
-                    style = "minimal",
-                    border = "rounded",
-                    source = "always",
+                    border = "single",
+                    source = true,
                     header = "",
                     prefix = "",
                 },
