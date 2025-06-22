@@ -29,7 +29,8 @@ opt.listchars = {
 }
 
 -- [[ window borders ]]
-vim.o.winborder = "single"
+-- NOTE: disable for now due breaking telescope https://github.com/nvim-telescope/telescope.nvim/issues/3436
+-- vim.o.winborder = "single"
 
 vim.g.clipboard = {
     name = "osc52",
