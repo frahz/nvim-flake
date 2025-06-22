@@ -12,6 +12,9 @@ return {
             float = {
                 padding = 5,
             },
+            keymaps = {
+                ["<leader>o"] = "actions.close",
+            }
         })
     end,
     keys = {
