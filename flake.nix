@@ -93,6 +93,7 @@
             # Misc
             pkgs.vimPlugins.lazydev-nvim
             pkgs.vimPlugins.rainbow-delimiters-nvim
+            pkgs.vimPlugins.tiny-inline-diagnostic-nvim
           ];
 
           # Anything that you're loading lazily should be put here

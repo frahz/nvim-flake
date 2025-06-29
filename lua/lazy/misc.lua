@@ -23,5 +23,13 @@ return {
                 },
             })
         end,
+    },
+    {
+        "tiny-inline-diagnostic.nvim",
+        after = function ()
+            require("tiny-inline-diagnostic").setup({
+                preset = "classic",
+            })
+        end
     }
 }

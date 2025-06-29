@@ -17,7 +17,7 @@ return {
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             vim.diagnostic.config({
-                virtual_text = true,
+                virtual_text = false,
                 signs = {
                     text = {
                         [vim.diagnostic.severity.ERROR] = "●",
