@@ -103,7 +103,7 @@ return {
                                 maxMemoryMB = 8196,
                                 flake = {
                                     autoArchive = false,
-                                    autoEvalInputs = true,
+                                    autoEvalInputs = false,
                                     nixpkgsInputName = nil,
                                 },
                             }
