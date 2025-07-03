@@ -32,6 +32,7 @@ end
 
 return {
     "alpha-nvim",
+    event = "VimEnter",
     before = function()
         LZN.trigger_load("nvim-web-devicons")
     end,

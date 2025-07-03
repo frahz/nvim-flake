@@ -1,6 +1,5 @@
 return {
     "oil.nvim",
-    lazy = false,
     -- before = function()
     --     lzn.trigger_load("nvim-treesitter")
     -- end,

@@ -41,6 +41,19 @@
             # theme
             pkgs.vimPlugins.catppuccin-nvim
 
+            # Telescope
+            pkgs.vimPlugins.plenary-nvim
+            pkgs.vimPlugins.telescope-fzf-native-nvim
+
+            # Statusline
+            pkgs.vimPlugins.nvim-web-devicons
+            pkgs.vimPlugins.lualine-nvim
+          ];
+
+          # Anything that you're loading lazily should be put here
+          opt = [
+            pkgs.vimPlugins.telescope-nvim
+
             pkgs.vimPlugins.blink-cmp
 
             # LSP
@@ -48,12 +61,9 @@
             pkgs.vimPlugins.nvim-lspconfig
             pkgs.vimPlugins.crates-nvim
 
+            # Treesitter
             pkgs.vimPlugins.nvim-treesitter.withAllGrammars
             pkgs.vimPlugins.nvim-ts-context-commentstring
-
-            # Telescope
-            pkgs.vimPlugins.plenary-nvim
-            pkgs.vimPlugins.telescope-fzf-native-nvim
 
             # Snippets
             pkgs.vimPlugins.luasnip
@@ -74,10 +84,6 @@
             # Detect indentation style
             pkgs.vimPlugins.guess-indent-nvim
 
-            # Statusline
-            pkgs.vimPlugins.nvim-web-devicons
-            pkgs.vimPlugins.lualine-nvim
-
             # Git support
             pkgs.vimPlugins.gitsigns-nvim
 
@@ -94,11 +100,6 @@
             pkgs.vimPlugins.lazydev-nvim
             pkgs.vimPlugins.rainbow-delimiters-nvim
             pkgs.vimPlugins.tiny-inline-diagnostic-nvim
-          ];
-
-          # Anything that you're loading lazily should be put here
-          opt = [
-            pkgs.vimPlugins.telescope-nvim
           ];
 
           dev.frahz = {

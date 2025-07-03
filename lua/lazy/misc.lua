@@ -1,12 +1,14 @@
 return {
     {
         "guess-indent.nvim",
+        event = "DeferredUIEnter",
         after = function()
             require("guess-indent").setup({})
         end,
     },
     {
         "comment.nvim",
+        event = "DeferredUIEnter",
         after = function ()
             require("Comment").setup({})
         end,
@@ -26,6 +28,7 @@ return {
     },
     {
         "tiny-inline-diagnostic.nvim",
+        event = "DeferredUIEnter",
         after = function ()
             require("tiny-inline-diagnostic").setup({
                 preset = "classic",

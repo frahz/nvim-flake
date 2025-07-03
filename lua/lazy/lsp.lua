@@ -1,13 +1,14 @@
 return {
     {
         "fidget.nvim",
+        event = "DeferredUIEnter",
         after = function()
             require("fidget").setup({})
         end
     },
     {
         "nvim-lspconfig",
-        lazy = false,
+        event = { "BufReadPre", "BufNewFile" },
         before = function()
             LZN.trigger_load("blink.cmp")
         end,
@@ -134,11 +135,11 @@ return {
             end
         end,
         keys = {
-            { "gD",        vim.lsp.buf.declaration,             desc = "Go to declaration" },
-            { "gd",        vim.lsp.buf.definition,              desc = "Go to definition" },
-            { "K",         vim.lsp.buf.hover,                   desc = "Hover documentation" },
-            { "gi",        vim.lsp.buf.implementation,          desc = "Go to implementation" },
-            { "<C-k>",     vim.lsp.buf.signature_help,          desc = "Signature help" },
+            { "gD",         vim.lsp.buf.declaration,             desc = "Go to declaration" },
+            { "gd",         vim.lsp.buf.definition,              desc = "Go to definition" },
+            { "K",          vim.lsp.buf.hover,                   desc = "Hover documentation" },
+            { "gi",         vim.lsp.buf.implementation,          desc = "Go to implementation" },
+            { "<C-k>",      vim.lsp.buf.signature_help,          desc = "Signature help" },
             { "<leader>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add workspace folder" },
             { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
             {
@@ -152,7 +153,7 @@ return {
             { "<leader>rn", vim.lsp.buf.rename,                                 desc = "Rename symbol" },
             { "<leader>ca", vim.lsp.buf.code_action,                            desc = "Code action" },
             { "<leader>e",  vim.diagnostic.open_float,                          desc = "Open diagnostic float" },
-            { "gr",        vim.lsp.buf.references,                             desc = "Go to references" },
+            { "gr",         vim.lsp.buf.references,                             desc = "Go to references" },
             { "<leader>f",  function() vim.lsp.buf.format { async = true } end, desc = "Format buffer" },
         },
     },
