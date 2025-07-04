@@ -41,9 +41,7 @@
             # theme
             pkgs.vimPlugins.catppuccin-nvim
 
-            # Telescope
             pkgs.vimPlugins.plenary-nvim
-            pkgs.vimPlugins.telescope-fzf-native-nvim
 
             # Statusline
             pkgs.vimPlugins.nvim-web-devicons
@@ -52,7 +50,9 @@
 
           # Anything that you're loading lazily should be put here
           opt = [
+            # Telescope
             pkgs.vimPlugins.telescope-nvim
+            pkgs.vimPlugins.telescope-fzf-native-nvim
 
             pkgs.vimPlugins.blink-cmp
 
