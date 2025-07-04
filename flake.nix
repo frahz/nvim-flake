@@ -37,19 +37,14 @@
         plugins = {
           start = [
             pkgs.vimPlugins.lz-n
-
-            # theme
-            pkgs.vimPlugins.catppuccin-nvim
-
             pkgs.vimPlugins.plenary-nvim
-
-            # Statusline
-            pkgs.vimPlugins.nvim-web-devicons
-            pkgs.vimPlugins.lualine-nvim
           ];
 
           # Anything that you're loading lazily should be put here
           opt = [
+            # theme
+            pkgs.vimPlugins.catppuccin-nvim
+
             # Telescope
             pkgs.vimPlugins.telescope-nvim
             pkgs.vimPlugins.telescope-fzf-native-nvim
@@ -60,6 +55,10 @@
             pkgs.vimPlugins.fidget-nvim
             pkgs.vimPlugins.nvim-lspconfig
             pkgs.vimPlugins.crates-nvim
+
+            # Statusline
+            pkgs.vimPlugins.nvim-web-devicons
+            pkgs.vimPlugins.lualine-nvim
 
             # Treesitter
             pkgs.vimPlugins.nvim-treesitter.withAllGrammars
