@@ -66,7 +66,6 @@
             pkgs.vimPlugins.nvim-ts-context-commentstring
 
             # Snippets
-            pkgs.vimPlugins.luasnip
             pkgs.vimPlugins.friendly-snippets
 
             # Symbols Viewer
