@@ -2,19 +2,6 @@ local function shiftwidth()
     return "󰌒  " .. vim.api.nvim_get_option_value("shiftwidth", {})
 end
 
-local theme = {
-    normal = {
-        a = { bg = "#1e1e2e", fg = "#cdd6f4" },
-        b = { bg = "#1e1e2e", fg = "#cdd6f4" },
-        c = { bg = "#1e1e2e", fg = "#cdd6f4" },
-    },
-    inactive = {
-        a = { bg = "#1e1e2e", fg = "#cdd6f4" },
-        b = { bg = "#1e1e2e", fg = "#cdd6f4" },
-        c = { bg = "#1e1e2e", fg = "#cdd6f4" },
-    },
-}
-
 vim.opt.fillchars = {
     stl = "─",
     stlnc = "─",
@@ -27,6 +14,19 @@ return {
         LZN.trigger_load("nvim-web-devicons")
     end,
     after = function()
+        local mocha = require("catppuccin.palettes").get_palette("mocha")
+        local theme = {
+            normal = {
+                a = { bg = mocha.base, fg = mocha.text },
+                b = { bg = mocha.base, fg = mocha.text },
+                c = { bg = mocha.base, fg = mocha.text },
+            },
+            inactive = {
+                a = { bg = mocha.base, fg = mocha.text },
+                b = { bg = mocha.base, fg = mocha.text },
+                c = { bg = mocha.base, fg = mocha.text },
+            },
+        }
         require("lualine").setup({
             options = {
                 icons_enabled = true,
@@ -36,12 +36,6 @@ return {
                 padding = 0,
             },
             sections = {
-                -- lualine_a = { "mode" },
-                -- lualine_b = { "branch", "diff", "diagnostics" },
-                -- lualine_c = { "progress", "location" },
-                -- lualine_x = { shiftwidth },
-                -- lualine_y = { "filetype" },
-                -- lualine_z = { "filename" }
                 lualine_a = {},
                 lualine_b = {
                     {
@@ -50,7 +44,7 @@ return {
                     },
                     {
                         "branch",
-                        icon = { "", color = { fg = "#b4befe" } },
+                        icon = { "", color = { fg = mocha.lavender } },
                         padding = 1,
                     },
                     {
