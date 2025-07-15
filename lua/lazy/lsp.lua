@@ -97,7 +97,7 @@ return {
                     settings = {
                         ['nil'] = {
                             formatting = {
-                                command = { "alejandra" },
+                                command = { "nixfmt" },
                             },
                             nix = {
                                 maxMemoryMB = 8196,
