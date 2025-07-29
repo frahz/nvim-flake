@@ -114,6 +114,7 @@ return {
                 pyright = {},
                 ts_ls = {},
                 gopls = {},
+                jsonls = {},
                 html = {
                     filetypes = { "django-html", "htmldjango", "html", "templ" }
                 },
