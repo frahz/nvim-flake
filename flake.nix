@@ -109,19 +109,7 @@
             pkgs.gcc
             pkgs.git
 
-            # TODO: LSP
-            pkgs.libclang
             pkgs.nil
-            pkgs.nodePackages.bash-language-server
-            pkgs.nodePackages.typescript-language-server
-            pkgs.pyright
-            pkgs.rust-analyzer
-            pkgs.lua-language-server
-            pkgs.gopls
-            pkgs.vscode-langservers-extracted
-            pkgs.htmx-lsp
-            pkgs.tailwindcss-language-server
-            pkgs.svelte-language-server
             pkgs.tinymist
             pkgs.marksman
 
