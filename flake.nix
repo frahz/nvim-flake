@@ -36,6 +36,7 @@
             start = [
               pkgs.vimPlugins.lz-n
               pkgs.vimPlugins.plenary-nvim
+              pkgs.vimPlugins.nvim-lspconfig
             ];
 
             # Anything that you're loading lazily should be put here
@@ -51,7 +52,6 @@
 
               # LSP
               pkgs.vimPlugins.fidget-nvim
-              pkgs.vimPlugins.nvim-lspconfig
               pkgs.vimPlugins.crates-nvim
 
               # Statusline
