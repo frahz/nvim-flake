@@ -2,12 +2,13 @@
 return {
     settings = {
         Lua = {
-            runtime = {
-                version = "LuaJIT",
-            },
             diagnostics = {
                 globals = { "vim", "LZN" },
                 disable = { "missing-fields" },
+            },
+            hint = {
+                enable = true,
+                arrayIndex = "Disable",
             },
             workspace = {
                 library = {},

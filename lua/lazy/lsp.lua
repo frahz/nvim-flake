@@ -9,9 +9,6 @@ return {
     {
         "crates.nvim",
         event = "BufEnter Cargo.toml",
-        before = function()
-            LZN.trigger_load("nvim-lspconfig")
-        end,
         after = function()
             require("crates").setup({
                 lsp = {
