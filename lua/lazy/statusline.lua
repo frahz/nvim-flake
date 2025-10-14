@@ -10,9 +10,6 @@ vim.opt.fillchars = {
 return {
     "lualine.nvim",
     event = "DeferredUIEnter",
-    before = function()
-        LZN.trigger_load("nvim-web-devicons")
-    end,
     after = function()
         local mocha = require("catppuccin.palettes").get_palette("mocha")
         local theme = {

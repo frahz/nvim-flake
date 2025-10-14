@@ -33,70 +33,13 @@
           '';
 
           plugins = {
-            start = [
-              pkgs.vimPlugins.lz-n
-              pkgs.vimPlugins.plenary-nvim
-              pkgs.vimPlugins.nvim-lspconfig
-            ];
+            start = mnw.lib.npinsToPlugins pkgs ./npins/start.json;
 
             # Anything that you're loading lazily should be put here
             opt = [
-              # theme
-              pkgs.vimPlugins.catppuccin-nvim
-
-              # Telescope
-              pkgs.vimPlugins.telescope-nvim
-              pkgs.vimPlugins.telescope-fzf-native-nvim
-
               pkgs.vimPlugins.blink-cmp
-
-              # LSP
-              pkgs.vimPlugins.fidget-nvim
-              pkgs.vimPlugins.crates-nvim
-
-              # Statusline
-              pkgs.vimPlugins.nvim-web-devicons
-              pkgs.vimPlugins.lualine-nvim
-
-              # Treesitter
               pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-              pkgs.vimPlugins.nvim-ts-context-commentstring
-
-              # Snippets
-              pkgs.vimPlugins.friendly-snippets
-
-              # Symbols Viewer
-              pkgs.vimPlugins.aerial-nvim
-
-              # Autopairs
-              pkgs.vimPlugins.nvim-autopairs
-
-              # Better comment keybinds
-              pkgs.vimPlugins.comment-nvim
-
-              # Indent guides
-              pkgs.vimPlugins.indent-blankline-nvim
-
-              # Detect indentation style
-              pkgs.vimPlugins.guess-indent-nvim
-
-              # Git support
-              pkgs.vimPlugins.gitsigns-nvim
-
-              # Greeter
-              pkgs.vimPlugins.alpha-nvim
-
-              # Typst support
-              pkgs.vimPlugins.typst-preview-nvim
-
-              # File explorer
-              pkgs.vimPlugins.oil-nvim
-
-              # Misc
-              pkgs.vimPlugins.lazydev-nvim
-              pkgs.vimPlugins.rainbow-delimiters-nvim
-              pkgs.vimPlugins.tiny-inline-diagnostic-nvim
-            ];
+            ] ++ mnw.lib.npinsToPlugins pkgs ./npins/opt.json;
 
             dev.frahz = {
               pure = ./.;
@@ -104,10 +47,10 @@
             };
           };
           extraBinPath = [
-            pkgs.ripgrep
             pkgs.fd
-            pkgs.gcc
+            pkgs.fzf
             pkgs.git
+            pkgs.ripgrep
 
             pkgs.nil
             pkgs.tinymist
@@ -125,6 +68,7 @@
         default = pkgs.mkShellNoCC {
           packages = [
             self.packages.${pkgs.system}.dev
+            pkgs.npins
           ];
         };
       });

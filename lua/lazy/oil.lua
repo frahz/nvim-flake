@@ -1,16 +1,9 @@
 return {
     "oil.nvim",
-    -- before = function()
-    --     lzn.trigger_load("nvim-treesitter")
-    -- end,
     after = function()
         require("oil").setup({
-            view_options = {
-                show_hidden = true,
-            },
-            float = {
-                padding = 5,
-            },
+            view_options = { show_hidden = true, },
+            float = { padding = 5, },
             keymaps = {
                 ["<leader>o"] = "actions.close",
             }

@@ -6,13 +6,6 @@ return {
         end,
     },
     {
-        "comment.nvim",
-        event = "DeferredUIEnter",
-        after = function ()
-            require("Comment").setup({})
-        end,
-    },
-    {
         "typst-preview.nvim",
         ft = "typst",
         after = function()
