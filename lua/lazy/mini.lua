@@ -51,8 +51,8 @@ return {
             require("mini.notify").setup({
                 content = {
                     format = function(notif)
-                       if notif.data.source == 'lsp_progress' then return notif.msg end
-                       return MiniNotify.default_format(notif)
+                        if notif.data.source == 'lsp_progress' then return notif.msg end
+                        return MiniNotify.default_format(notif)
                     end,
                 },
                 lsp_progess = { duration_last = 2000 },
@@ -83,7 +83,7 @@ return {
     {
         "mini.starter",
         event = "VimEnter",
-        after = function ()
+        after = function()
             local starter = require("mini.starter")
             starter.setup({
                 header = table.concat({
@@ -105,7 +105,7 @@ return {
                 }, "\n"),
                 footer = os.date("%B %d, %I:%M %p"),
                 items = {
-                    { name = "Files", action = "FzfLua files", section = "Search", },
+                    { name = "Files",     action = "FzfLua files",     section = "Search", },
                     { name = "Live grep", action = "FzfLua live_grep", section = "Search", },
                     starter.sections.builtin_actions(),
                     starter.sections.recent_files(4, false),

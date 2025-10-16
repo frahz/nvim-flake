@@ -21,7 +21,7 @@ return {
     {
         "tiny-inline-diagnostic.nvim",
         event = "DeferredUIEnter",
-        after = function ()
+        after = function()
             require("tiny-inline-diagnostic").setup({
                 preset = "classic",
             })
