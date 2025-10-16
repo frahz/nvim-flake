@@ -3,7 +3,7 @@ return {
     after = function()
         require("oil").setup({
             view_options = { show_hidden = true, },
-            float = { padding = 5, },
+            float = { border = "rounded", padding = 5 },
             keymaps = {
                 ["<leader>o"] = "actions.close",
             }
