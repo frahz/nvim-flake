@@ -10,10 +10,10 @@ return {
         ft = "typst",
         after = function()
             require("typst-preview").setup({
-                open_cmd = 'firefox %s --class typst-preview',
+                open_cmd = "firefox %s --class typst-preview",
                 dependencies_bin = {
-                    ['tinymist'] = "${pkgs.tinymist}/bin/tinymist",
-                    ['websocat'] = "${pkgs.websocat}/bin/websocat"
+                    ["tinymist"] = "tinymist",
+                    ["websocat"] = "websocat"
                 },
             })
         end,
