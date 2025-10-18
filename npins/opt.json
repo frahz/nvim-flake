@@ -117,6 +117,19 @@
       "url": "https://github.com/nvim-lualine/lualine.nvim/archive/3946f0122255bc377d14a59b27b609fb3ab25768.tar.gz",
       "hash": "0mrk9959yn5hwsf1nayd149f18yfcbf6nfplg806n2z1dmsc1nl5"
     },
+    "mini.ai": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nvim-mini",
+        "repo": "mini.ai"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "11c57180bc9084089206e211ac7aa598bedc9673",
+      "url": "https://github.com/nvim-mini/mini.ai/archive/11c57180bc9084089206e211ac7aa598bedc9673.tar.gz",
+      "hash": "1j5gh95m3i85w5ygzdsswhs8skdbr5qjxl2frwzzi8qmvipiiip1"
+    },
     "mini.comment": {
       "type": "Git",
       "repository": {
@@ -182,6 +195,19 @@
       "url": "https://github.com/nvim-mini/mini.pairs/archive/b9aada8c0e59f2b938e98fbf4eae0799eba96ad9.tar.gz",
       "hash": "01z80b55yg8sa1vfga8bq7jdl7glm93jxs8v390cyafshk4ajm98"
     },
+    "mini.splitjoin": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nvim-mini",
+        "repo": "mini.splitjoin"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "b0d57bb5d1ed154e5902ae2745f1a320a7642443",
+      "url": "https://github.com/nvim-mini/mini.splitjoin/archive/b0d57bb5d1ed154e5902ae2745f1a320a7642443.tar.gz",
+      "hash": "1amhhmm4kh84pl24mvjwybr6vyq5v4pr5kl521rd7ppbz8ikispc"
+    },
     "mini.starter": {
       "type": "Git",
       "repository": {
@@ -194,6 +220,19 @@
       "revision": "b43df0b0c66b14802e28d4761ed902704e3796e3",
       "url": "https://github.com/nvim-mini/mini.starter/archive/b43df0b0c66b14802e28d4761ed902704e3796e3.tar.gz",
       "hash": "1c6x0nm6q4vx8vkm53gzfr01av0cy722g4zk88ma5rrr10ychzj1"
+    },
+    "mini.surround": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nvim-mini",
+        "repo": "mini.surround"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "444e155147e2b5159dd28a65f9736254c16cb817",
+      "url": "https://github.com/nvim-mini/mini.surround/archive/444e155147e2b5159dd28a65f9736254c16cb817.tar.gz",
+      "hash": "1b34pvaipvqwsb2kngzv5zvqrdmbr4q9v29qh1rwg80byifi33f4"
     },
     "nvim-ts-context-commentstring": {
       "type": "Git",

@@ -1,5 +1,12 @@
 return {
     {
+        "mini.ai",
+        event = "BufAdd",
+        after = function()
+            require("mini.ai").setup()
+        end
+    },
+    {
         "mini.comment",
         event = "DeferredUIEnter",
         after = function()
@@ -81,6 +88,20 @@ return {
         end
     },
     {
+        "mini.splitjoin",
+        event = "BufRead",
+        after = function()
+            local sj = require("mini.splitjoin")
+            sj.setup({
+                join = {
+                    hooks_post = {
+                        sj.gen_hook.pad_brackets( { bracket = { "%b{}" } } )
+                    }
+                }
+            })
+        end
+    },
+    {
         "mini.starter",
         event = "VimEnter",
         after = function()
@@ -115,6 +136,13 @@ return {
                     starter.gen_hook.aligning("center", "center"),
                 }
             })
+        end
+    },
+    {
+        "mini.surround",
+        event = "BufRead",
+        after = function()
+            require("mini.surround").setup()
         end
     }
 }
