@@ -11,6 +11,8 @@
       ...
     }:
     let
+      inherit (nixpkgs) lib;
+
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -39,7 +41,8 @@
             opt = [
               pkgs.vimPlugins.blink-cmp
               pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-            ] ++ mnw.lib.npinsToPlugins pkgs ./npins/opt.json;
+            ]
+            ++ mnw.lib.npinsToPlugins pkgs ./npins/opt.json;
 
             dev.frahz = {
               pure = ./.;
@@ -70,6 +73,21 @@
             self.packages.${pkgs.system}.dev
             pkgs.npins
           ];
+        };
+      });
+      apps = forAllSystems (pkgs: {
+        update = {
+          type = "app";
+          program = lib.getExe (
+            pkgs.writeShellApplication {
+              name = "update";
+              runtimeInputs = [ pkgs.npins ];
+              text = ''
+                npins --lock-file npins/start.json update --full
+                npins --lock-file npins/opt.json update --full
+              '';
+            }
+          );
         };
       });
     };
